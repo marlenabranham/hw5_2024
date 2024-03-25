@@ -1,0 +1,155 @@
+/*Step 1: create the keyframes rule*/
+@keyframes logo {
+    from {width: 25px;
+        opacity:0;}
+    to {width: 475px;
+        opacity:1;}
+  }
+
+#logo {
+    animation: logo 5s ease-in-out forwards;
+}
+
+/*Step 2: incorporate the Poppins font from Google Fonts and set the background image*/
+body {
+    font-family: "Poppins", serif;
+    background-image: url(".../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/*Step 3: create the header styles*/
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Step 4: create the navigation bar styles*/
+.nav_links {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/*Step 5: create the main content styles*/
+a:link,
+a:visited {
+    color: blue;
+    text-decoration: underline;
+}
+
+/*Step 6: create the header styles in card class*/
+.card > header {
+    background-color: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/*Step 7: match card class to example */
+.card {
+    flex: 0 1 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/*Step 8: create the pricing card styles*/
+.pricing {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+/*Step 9 and 10: create the gallery styles*/
+.gallery img{
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* screen size larger than 900px */
+@media screen and (min-width: 900px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .pricing {
+        align-items: flex-start;
+    }
+
+    .cards {
+        flex: 0 1 275px;
+    }
+
+    body > header:first-of-type {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+}
+
+/* Reduced motion adaptation */
+@media (prefers-reduced-motion: reduce) {
+    .logo {
+      animation: none;
+      width: 475px;
+      opacity: 1;
+    }
+}
+
+/* Print view*/
+
+@media print {
+    body {
+      font-family: Arial, Helvetica;
+      background-image: none !important;
+    }
+
+    .nav_links {
+        justify-content: center;
+        flex-direction: row;
+        gap: 100px;
+    }
+
+    .pricing {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    .gallery {
+        display: none !important;
+    }
+
+  /* Add thumbs up entity to each card */
+  .card {
+    content: "\1F44D\0020";
+    display: inline-block;
+  }
+}
